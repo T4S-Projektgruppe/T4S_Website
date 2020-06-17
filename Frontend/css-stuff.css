@@ -32,3 +32,12 @@
 .card{
     margin: 10px;
 }
+.main-text{
+    line-height: 1.5;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.h1{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
