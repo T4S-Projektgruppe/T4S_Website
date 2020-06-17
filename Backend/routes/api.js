@@ -1,10 +1,11 @@
-let router = require("express").Router;
+let router = require("express").Router();
 const fs = require("fs"),
     path = require("path"),
     conf = require(path.join(process.cwd(), 'db-conf.json'));
 
 router.route('/list').get((req, res) => {
-    res.status(200).send('this will be a list');
+    console.log('I am here')
+    res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'list.html')); 
 });
 
 router.route('/profile/:id').get((req, res) => {
@@ -12,13 +13,25 @@ router.route('/profile/:id').get((req, res) => {
     //perform sql query SELECT * FROM user WHERE user_id = id
     //return user object as json
     console.log(id)
-    res.send('this is your profile');
+    res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Profil.html'));
 }).post((req, res, next) => {
 
 }).put((req, res) => {
 
 })
+router.route('/register').get((req, res) => {
+    res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Signup.html'));
+}).post((req, res, next) => {
+
+})
+
+router.route('/login').get((req, res) => {
+    res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Login.html'));
+}).post((req, res) => {
+    
+})
 
 router.route("/").get((req, res) => {
-  res.send("you accessed the homepage");  
+  res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'homepage.html')); 
 })
+module.exports = router;
