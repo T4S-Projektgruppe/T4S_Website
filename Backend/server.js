@@ -32,6 +32,7 @@ const credentials = {
 
 // all use things
 app.use(api);
+
 app.use(compression());
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -40,9 +41,11 @@ app.use(
 		extended: false
 	})
 );
+app.use('/static', express.static(path.join(process.cwd(), '..', 'Frontend', 'static')));
 // setting up http and https server
 const httpServer = http.createServer(app);
 //const httpsServer = https.createServer(credentials, app);
+
 
 httpServer.listen(80, () => {
  	console.log('HTTP Server running on port 80');
