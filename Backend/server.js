@@ -4,7 +4,8 @@ const express = require('express'),
 	app = express(),
 	fs = require('fs'),
 	compression = require('compression'),
-	api = require('./routes/api');
+	api = require('./routes/api'),
+	pug = require('pug');
 const http = require('http');
 const https = require('https');
 
@@ -31,8 +32,9 @@ const credentials = {
 })*/
 
 // all use things
+app.set('views', './views');
+app.set('view engine', 'pug');
 app.use(api);
-
 app.use(compression());
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
