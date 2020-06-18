@@ -1,10 +1,10 @@
 
 const express = require('express'),
-path = require('path'),
-app = express(),
-fs = require('fs'),
-compression = require('compression'),
-api = require('./routes/api');
+	path = require('path'),
+	app = express(),
+	fs = require('fs'),
+	compression = require('compression'),
+	api = require('./routes/api');
 const http = require('http');
 const https = require('https');
 
@@ -21,18 +21,18 @@ const credentials = {
 */
 
 
-app.use('/', function(req, res, next){
-	if (!req.secure) {
-		console.log("not secure")
-		res.redirect('https://' + req.headers.host + req.url);
-	}
-	else next()
+/*app.use('/', function (req, res, next) {
 
-    // Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
+	console.log("not secure")
+	res.status(200).sendFile(path.join(process.cwd(), 'index.html'));
+
+	// Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
 	//        res.redirect('https://example.com' + req.url);
-})
+})*/
 
 // all use things
+app.use(api);
+
 app.use(compression());
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -41,13 +41,16 @@ app.use(
 		extended: false
 	})
 );
+app.use('/static', express.static(path.join(process.cwd(), '..', 'Frontend', 'static')));
 // setting up http and https server
 const httpServer = http.createServer(app);
 //const httpsServer = https.createServer(credentials, app);
 
+
 httpServer.listen(80, () => {
-		console.log('HTTP Server running on port 80');
+ 	console.log('HTTP Server running on port 80');
 })
+
 //httpsServer.listen(443, () => {
 //		console.log('HTTPS Server running on port 443');
 //});
