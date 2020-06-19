@@ -9,7 +9,7 @@ const client = new Client({
 
 client.connect()
 .then(() => console.log("Connected successfuly"))
-.then(() => client.query("INSERT INTO FACH values($1, $2, $3)", [0, 'POS', 'Programmieren']))
+.then(() => client.query("INSERT INTO FACH values($2, $3)", ['POS', 'Programmieren']))
 .then(results => console.table(results.rows))
 .catch(e => console.log(e))
 .finally(() => client.end())
