@@ -1,4 +1,4 @@
-# Teamup4Success Web application
+# Teamup4Success Website
 ### Table of contents
 + What is Teamup4Success?
 
