@@ -5,7 +5,6 @@ var router = require("express").Router();
 var fs = require("fs"),
     path = require("path"),
     conf = require(path.join(process.cwd(), 'db-conf.json')),
-    student = require("../student"),
     dba = require("../db-access");
 
 router.route('/list').get(function (req, res) {
@@ -23,7 +22,7 @@ router.route('/register').get(function (req, res) {
 router.route('/login').get(function (req, res) {
   res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Login.html'));
 }).post(function (req, res, next) {});
-router.route("/").get(function (req, res) {
+router.route("/home").get(function (req, res) {
   res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Main-Page.html'));
 });
 router.route('/student/:id').get(function (req, res) {

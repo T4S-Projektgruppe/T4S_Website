@@ -22,16 +22,10 @@ const credentials = {
 };
 */
 
-/*app.use('/', function (req, res, next) {
 
-	console.log("not secure")
-	res.status(200).sendFile(path.join(process.cwd(), 'index.html'));
-
-	// Or, if you don't want to automatically detect the domain name from the request header, you can hard code it:
-	//        res.redirect('https://example.com' + req.url);
-})*/
-// all use things
-
+app.get('/', function (req, res) {
+  res.redirect('/home');
+}); // all use things
 
 app.set('views', './views');
 app.use(api);

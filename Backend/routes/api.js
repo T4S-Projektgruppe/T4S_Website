@@ -2,7 +2,6 @@ let router = require("express").Router();
 const fs = require("fs"),
     path = require("path"),
     conf = require(path.join(process.cwd(), 'db-conf.json')),
-    student = require("../student"),
     dba = require("../db-access");
 
 router.route('/list').get((req, res) => {
@@ -30,7 +29,7 @@ router.route('/login').get((req, res) => {
 
 })
 
-router.route("/").get((req, res) => {
+router.route("/home").get((req, res) => {
     res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Main-Page.html')); 
 })
 
