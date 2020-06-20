@@ -6,8 +6,11 @@ const fs = require("fs"),
 
 
 router.route('/list').get((req, res) => {
-    console.log('I am here')
+
     res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'list.html')); 
+});
+router.route('/students').get((req, res) => {
+
 });
 
 router.route('/profile/:id').get((req, res) => {
@@ -21,12 +24,12 @@ router.route('/profile/:id').get((req, res) => {
 }).put((req, res) => {
 
 })
+
 router.route('/register').get((req, res) => {
     res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Signup.html'));
 }).post((req, res, next) => {
 
 })
-
 router.route('/login').get((req, res) => {
     res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Login.html'));
 }).post((req, res, next) => {
