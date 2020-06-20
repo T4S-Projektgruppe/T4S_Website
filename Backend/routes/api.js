@@ -6,7 +6,7 @@ const fs = require("fs"),
 
 router.route('/list').get((req, res) => {
 
-    res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'list.html')); 
+    res.status(200).sendFile(path.join(process.cwd(), '..', 'Frontend', 'Schüler-Liste.html')); 
 });
 router.route('/students').get((req, res) => {
 
